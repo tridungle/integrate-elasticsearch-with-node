@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+      "target": "es2018",
+      "allowSyntheticDefaultImports": false,
+      "baseUrl": "./",
+      "paths": {
+        "@app": ["./src/app"],
+        "@database/*": ["./src/database/*"],
+        "@config/*": ["./src/config/*"],
+        "@helpers/*": ["./src/helpers/*"],
+        "@middlewares/*": ["./src/middlewares/*"],
+        "@routes/*": ["./src/routes/*"]
+      }
+    },
+    "exclude": ["node_modules", "dist"]
+  }

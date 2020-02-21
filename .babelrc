@@ -1,0 +1,20 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-transform-runtime",
+    [
+      "babel-plugin-module-resolver",
+      {
+        "alias": {
+          "@app": "./src/app",
+          "@config": "./src/config",
+          "@database": "./src/database",
+          "@helpers": "./src/helpers",
+          "@middlewares": "./src/middlewares",
+          "@routes": "./src/routes"
+        }
+      }
+    ]
+  ]
+}
