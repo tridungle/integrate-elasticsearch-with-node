@@ -1,73 +1,28 @@
-# node-es6-boilerplate
-# Scripts
+# Integrate Elasticsearch With Node.js
 
-**"build:babel"**: build the source code with babel
+## What Do We Do
 
-**"start:babel"**: start project with babel
+* We will install Elasticsearch and run it in our system. (We will use Docker, where Elasticsearch will run, it is very easy.
+* We will create a huge data storage for live search.
+* We will create indexes (+100,000 indexes) from our created data storage.
+* We will integrate and search content from our data storage using Elasticsearch.
+* We will analyze the search time.
+* Delete the indexes of Elasticsearch.
 
-**"serve"**: start project with pm2
+## Run Elasticsearch with Docker
 
-**"build"**: build project with webpack
+* Pull the image for Elasticsearch using the command below:
 
-**"restart"**: restart pm2 project
+        docker pull docker.elastic.co/elasticsearch/elasticsearch:6.4.0
 
-**"stop"**: stop pm2 project
+* Run the Docker image using the below command:
 
-**"start"**: start project with webpack
+        docker run *p 9200:9200 *p 9300:9300 *e "discovery.type=single*node" docker.elastic.co/elasticsearch/elasticsearch:6.4.0
 
-# Config alias
+By default, this Docker is running on port 9200. Now, open the browser and hit URL http://localhost:9200 
 
-**Babel**
+## Create Data Storage for Live Search
 
-        "plugins": [
-            [
-                "babel-plugin-module-resolver",
-                {
-                    "alias": {
-                        "@app": "./src/app",
-                        "@config": "./src/config",
-                        "@database": "./src/database",
-                        "@helpers": "./src/helpers",
-                        "@middlewares": "./src/middlewares",
-                        "@routes": "./src/routes"
-                    }
-                }
-            ]
-        ]
+* Download a file named planet*latest_geonames.tsv.gz from [GitHub](https://github.com/geometalab/OSMNames/releases/download/v2.0/planet*latest_geonames.tsv.gz) or [this link](https://github.com/OSMNames/OSMNames/releases)
 
-**Webpack**
-
-Without any additional plugins, Webpack allows aliasing module imports through the resolve.alias property in your config.
-
-    module.resolve = {
-        alias: {
-            "@app": "./src/app",
-            "@config": "./src/config",
-            "@database": "./src/database",
-            "@helpers": "./src/helpers",
-            "@middlewares": "./src/middlewares",
-            "@routes": "./src/routes"
-        }
-    }
-
-
-**VS Code**
-
-Making VS Code ‘smarter’ by telling it how to resolve these aliases is as easy as adding a jsconfig.json file to your project at the root. Use the exclude property to keep VS Code from slowing down by searching node_modules or compiled folders (like dist).
-
-    {
-        "compilerOptions": {
-            "target": "es2017",
-            "allowSyntheticDefaultImports": false,
-            "baseUrl": "./",
-            "paths": {
-                "@app": "./src/app",
-                "@config": "./src/config",
-                "@database": "./src/database",
-                "@helpers": "./src/helpers",
-                "@middlewares": "./src/middlewares",
-                "@routes": "./src/routes"
-            }
-        },
-        "exclude": ["node_modules", "dist"]
-    }
+## Write Code for Indexing and Start Working With Elasticsearch

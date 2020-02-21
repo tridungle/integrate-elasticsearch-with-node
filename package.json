@@ -1,8 +1,8 @@
 {
-  "name": "node-es6-boilerplate",
+  "name": "integrate-elasticsearch-with-node",
   "version": "0.1",
-  "description": "The minimal Node.js with Babel Setup",
-  "repository": "https://github.com/tridungle/node-es6-boilerplate.git",
+  "description": "Integrate Elasticsearch With Node",
+  "repository": "https://github.com/tridungle/integrate-elasticsearch-with-node.git",
   "main": "index.js",
   "scripts": {
     "watch": "nodemon ./src/bin/server",
